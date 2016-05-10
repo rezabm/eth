@@ -1,0 +1,10 @@
+e:\eth\autoreboot\autoreboot\bin\Debug\autoreboot.exe
+e:\eth\autoreboot\autoreboot\bin\Debug\autoreboot.pdb
+e:\eth\autoreboot\autoreboot\bin\Debug\Newtonsoft.Json.dll
+e:\eth\autoreboot\autoreboot\bin\Debug\Newtonsoft.Json.xml
+e:\eth\autoreboot\autoreboot\obj\Debug\autoreboot.csprojResolveAssemblyReference.cache
+e:\eth\autoreboot\autoreboot\obj\Debug\autoreboot.Form1.resources
+e:\eth\autoreboot\autoreboot\obj\Debug\autoreboot.Properties.Resources.resources
+e:\eth\autoreboot\autoreboot\obj\Debug\autoreboot.csproj.GenerateResource.Cache
+e:\eth\autoreboot\autoreboot\obj\Debug\autoreboot.exe
+e:\eth\autoreboot\autoreboot\obj\Debug\autoreboot.pdb
