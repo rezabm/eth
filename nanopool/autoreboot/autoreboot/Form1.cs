@@ -45,8 +45,6 @@ namespace autoreboot
                 }
             }
 
-
-
             InitializeComponent();
             this.Text = worker;
         }
@@ -70,12 +68,10 @@ namespace autoreboot
                 labelStatus.Text = "Status: " + (s?"Running":"Stopped");
                 labelData.Text = "Hashrate: " + d.ToString() + "MH/s";
 
-                label1.Text = "Restart counter: " + secondsInFailure.ToString() + " seconds (will restart when reaches" + timeout.ToString() + " seconds)";
+                label1.Text = "Restart counter: " + secondsInFailure.ToString() + " seconds (will restart when reaches " + timeout.ToString() + " seconds)";
 
                 if (secondsInFailure > timeout)
                     Restart();
-
-
             }
             catch
             {
