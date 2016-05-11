@@ -9,23 +9,44 @@ using System.Net;
 using System.IO;
 using System.Globalization;
 using Newtonsoft.Json;
+using Utilities;
 
 namespace autoreboot
 {
     public partial class Form1 : Form
     {
+        Arguments commandLine;
+
         int secondsInFailure = 0;
+        int timeout = 900;
+
         string worker = string.Empty;
+
         public Form1(string[] args)
         {
-            if (args.Length == 1)
-                worker = args[0];
-            else
+            commandLine = new Arguments(args);
+            if (commandLine["worker"] != null)
             {
-                MessageBox.Show("Wrong argument.\nUsage: " + Path.GetFileName(Application.ExecutablePath).ToUpper() + " <worker>");
-                Load += (s, e) => Close();
-
+                worker = commandLine["worker"];
             }
+            else 
+            {
+                MessageBox.Show("Wrong argument.\nUsage: " + Path.GetFileName(Application.ExecutablePath).ToUpper() + " /worker=<workerid>");
+                Load += (s, e) => Close();
+            }
+
+            if (commandLine["timeout"] != null)
+            {
+                try {
+                    int i = int.Parse(commandLine["timeout"]);
+                    timeout = i;
+                } catch
+                {
+                }
+            }
+
+
+
             InitializeComponent();
             this.Text = worker;
         }
@@ -46,12 +67,12 @@ namespace autoreboot
                 else
                     secondsInFailure = 0;
 
-                labelStatus.Text = "Status: " + s.ToString();
-                labelData.Text = "Data: " + d.ToString();
+                labelStatus.Text = "Status: " + (s?"Running":"Stopped");
+                labelData.Text = "Hashrate: " + d.ToString() + "MH/s";
 
-                label1.Text = "Error state duration: " + secondsInFailure.ToString() + " seconds";
+                label1.Text = "Restart counter: " + secondsInFailure.ToString() + " seconds (will restart when reaches" + timeout.ToString() + " seconds)";
 
-                if (secondsInFailure > 120)
+                if (secondsInFailure > timeout)
                     Restart();
 
 

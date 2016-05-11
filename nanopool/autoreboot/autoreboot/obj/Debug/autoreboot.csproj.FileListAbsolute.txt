@@ -8,3 +8,13 @@ e:\eth\autoreboot\autoreboot\obj\Debug\autoreboot.Properties.Resources.resources
 e:\eth\autoreboot\autoreboot\obj\Debug\autoreboot.csproj.GenerateResource.Cache
 e:\eth\autoreboot\autoreboot\obj\Debug\autoreboot.exe
 e:\eth\autoreboot\autoreboot\obj\Debug\autoreboot.pdb
+C:\Users\mrezab\Desktop\eth\nanopool\autoreboot\autoreboot\bin\Debug\autoreboot.exe
+C:\Users\mrezab\Desktop\eth\nanopool\autoreboot\autoreboot\bin\Debug\autoreboot.pdb
+C:\Users\mrezab\Desktop\eth\nanopool\autoreboot\autoreboot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mrezab\Desktop\eth\nanopool\autoreboot\autoreboot\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mrezab\Desktop\eth\nanopool\autoreboot\autoreboot\obj\Debug\autoreboot.csprojResolveAssemblyReference.cache
+C:\Users\mrezab\Desktop\eth\nanopool\autoreboot\autoreboot\obj\Debug\autoreboot.Form1.resources
+C:\Users\mrezab\Desktop\eth\nanopool\autoreboot\autoreboot\obj\Debug\autoreboot.Properties.Resources.resources
+C:\Users\mrezab\Desktop\eth\nanopool\autoreboot\autoreboot\obj\Debug\autoreboot.csproj.GenerateResource.Cache
+C:\Users\mrezab\Desktop\eth\nanopool\autoreboot\autoreboot\obj\Debug\autoreboot.exe
+C:\Users\mrezab\Desktop\eth\nanopool\autoreboot\autoreboot\obj\Debug\autoreboot.pdb

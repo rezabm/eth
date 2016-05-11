@@ -62,11 +62,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(72, 105);
+            this.button1.Location = new System.Drawing.Point(132, 117);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 36);
+            this.button1.Size = new System.Drawing.Size(97, 36);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Reboot";
+            this.button1.Text = "Reboot Now";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -83,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 165);
+            this.ClientSize = new System.Drawing.Size(363, 165);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelData);
