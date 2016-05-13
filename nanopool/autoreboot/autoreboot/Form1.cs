@@ -16,9 +16,11 @@ namespace autoreboot
     public partial class Form1 : Form
     {
         Arguments commandLine;
+        LocalVarStore localData = LocalVarStore.OpenLocalVarStore();
 
         int secondsInFailure = 0;
         int timeout = 900;
+        int reboots = 0;
 
         string worker = string.Empty;
 
@@ -47,29 +49,37 @@ namespace autoreboot
 
             InitializeComponent();
             this.Text = worker;
+            try
+            {
+                localData.LoadFromFile();
+                string s = localData["reboots"];
+                if (s != null)
+                {
+                    reboots = int.Parse(s, NumberStyles.Any, CultureInfo.InvariantCulture);
+                }
+            }
+            catch
+            {
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            WebClient client = new WebClient();
-
-            string json = client.DownloadString("http://eth.nanopool.org/api/hashrate/0xc8fd764ad39e69ecb857ba7466a0e0057c611c32/" + worker);
-            NanopoolApiWorker data = JsonConvert.DeserializeObject<NanopoolApiWorker>(json);
-
             try
             {
+                WebClient client = new WebClient();
+                string json = client.DownloadString("http://eth.nanopool.org/api/hashrate/0xc8fd764ad39e69ecb857ba7466a0e0057c611c32/" + worker);
+                NanopoolApiWorker data = JsonConvert.DeserializeObject<NanopoolApiWorker>(json);
                 bool s = bool.Parse(data.Status);
                 double d = double.Parse(data.Data, NumberStyles.Any, CultureInfo.InvariantCulture);
                 if (!s || (d == 0))
                     secondsInFailure++;
                 else
                     secondsInFailure = 0;
-
                 labelStatus.Text = "Status: " + (s?"Running":"Stopped");
                 labelData.Text = "Hashrate: " + d.ToString() + "MH/s";
-
                 label1.Text = "Restart counter: " + secondsInFailure.ToString() + " seconds (will restart when reaches " + timeout.ToString() + " seconds)";
-
+                label2.Text = "Reboot count: " + reboots.ToString();
                 if (secondsInFailure > timeout)
                     Restart();
             }
@@ -81,6 +91,9 @@ namespace autoreboot
 
         private void Restart()
         {
+            localData["reboots"] = (reboots+1).ToString();
+            localData.SaveToFile();
+
             System.Diagnostics.Process.Start("cmd.exe",  "/c shutdown /r /f /t 0");
         }
 
